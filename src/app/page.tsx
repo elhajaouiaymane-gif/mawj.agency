@@ -1,25 +1,18 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
-const Manifesto = dynamic(() => import("@/components/sections/Manifesto"));
-const Services = dynamic(() => import("@/components/sections/Services"));
-const Portfolio = dynamic(() => import("@/components/sections/Portfolio"));
-const ProcessTimeline = dynamic(() => import("@/components/sections/ProcessTimeline"));
-const Stats = dynamic(() => import("@/components/sections/Stats"));
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"));
-const Pricing = dynamic(() => import("@/components/sections/Pricing"));
-const Contact = dynamic(() => import("@/components/sections/Contact"));
-const Footer = dynamic(() => import("@/components/sections/Footer"));
+import Hero from "@/components/sections/Hero";
+import Manifesto from "@/components/sections/Manifesto";
+import Services from "@/components/sections/Services";
+import Portfolio from "@/components/sections/Portfolio";
+import ProcessTimeline from "@/components/sections/ProcessTimeline";
+import Stats from "@/components/sections/Stats";
+import Testimonials from "@/components/sections/Testimonials";
+import Pricing from "@/components/sections/Pricing";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
     <div className="relative">
-      <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan border-t-transparent" /></div>}>
-        <Hero />
-      </Suspense>
+      <Hero />
       <Manifesto />
       <Services />
       <Portfolio />
@@ -28,9 +21,7 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <Contact />
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 }
